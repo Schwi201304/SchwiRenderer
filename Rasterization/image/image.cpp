@@ -7,6 +7,14 @@
 #include"stb_image_resize.h"
 
 namespace schwi {
+	Color Color::operator*(const double d) {
+		Color ret=*this;
+		for (int i = 0; i < comp; i++) {
+			ret[i] *= d;
+		}
+		return ret;
+	}
+
 	bool Image::load_file(const std::string& filename,bool flip) {
 		stbi_set_flip_vertically_on_load(flip);
 		BYTE* data = stbi_load(filename.c_str(), &w, &h, &comp, 0);

@@ -36,11 +36,12 @@ namespace schwi {
 		vec2 bboxmin(std::numeric_limits<double>::max(), std::numeric_limits<double>::max());
 		vec2 bboxmax(-std::numeric_limits<double>::max(), -std::numeric_limits<double>::max());
 		vec2 clamp(image.width() - 1, image.height() - 1);
-		for (int i = 0; i < 3; i++)
+		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 2; j++) {
 				bboxmin[j] = std::max(0., std::min(bboxmin[j], pts2[i][j]));
 				bboxmax[j] = std::min(clamp[j], std::max(bboxmax[j], pts2[i][j]));
 			}
+		}
 #pragma omp parallel for
 		for (int x = (int)bboxmin.x; x <= (int)bboxmax.x; x++) {
 			for (int y = (int)bboxmin.y; y <= (int)bboxmax.y; y++) {
@@ -50,7 +51,7 @@ namespace schwi {
 				double frag_depth = vec3(clip_verts[0][2], clip_verts[1][2], clip_verts[2][2]) * bc_clip;
 				if (bc_screen.x < 0 || bc_screen.y < 0 || bc_screen.z<0 || frag_depth > zbuffer[x + y * image.width()]) continue;
 				Color color;
-				if (shader.fragment(bc_clip, color)) continue; // fragment shader can discard current fragment
+				if (shader.fragment(bc_clip, color)) { continue; }// fragment shader can discard current fragment
 				zbuffer[x + y * image.width()] = frag_depth;
 				image.setColor(x, y, color);
 			}

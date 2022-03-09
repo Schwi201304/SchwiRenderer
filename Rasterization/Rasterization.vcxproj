@@ -146,6 +146,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="model.cpp" />
     <ClCompile Include="our_gl.cpp" />
+    <ClCompile Include="shader\GouraudShader.h" />
     <ClCompile Include="shader\PhongShader.h" />
   </ItemGroup>
   <ItemGroup>

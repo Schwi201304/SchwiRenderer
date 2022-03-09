@@ -9,7 +9,7 @@ namespace schwi {
     constexpr int width = 800; // output image size
     constexpr int height = 800;
 
-    const vec3 light_dir(1, 1, 1); // light source
+    const vec3 light_dir(1, 1, 1); // parallel light source
     const vec3       eye(1, 1, 3); // camera position
     const vec3    center(0, 0, 0); // camera direction
     const vec3        up(0, 1, 0); // camera up vector

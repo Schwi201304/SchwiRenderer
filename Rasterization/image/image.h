@@ -24,6 +24,7 @@ namespace schwi {
 
 		BYTE& operator[](const int i) { return rgba[i]; }
 		const BYTE& operator[](const int i)const { return rgba[i]; }
+		Color operator*(const double d);
 	};
 
 	class Image {

@@ -36,7 +36,7 @@ namespace schwi {
 
             vec3 n = (B * model.normal(uv)).normalize(); // transform the normal from the texture to the tangent space
             double diff = std::max(0., n * uniform_l); // diffuse light intensity
-            vec3 r = (n * (n * uniform_l) * 2 - uniform_l).normalize(); // reflected light direction, specular mapping is described here: https://github.com/ssloy/tinyrenderer/wiki/Lesson-6-Shaders-for-the-software-renderer
+            vec3 r = (n * (n * uniform_l) * 2 - uniform_l).normalize(); // reflected light direction
             double spec = std::pow(std::max(-r.z, 0.), 5 + sample2D(model.specular(), uv)[0]); // specular intensity, note that the camera lies on the z-axis (in view), therefore simple -r.z
 
             Color c = sample2D(model.diffuse(), uv);
