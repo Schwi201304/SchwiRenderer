@@ -7,9 +7,9 @@
 #include"stb_image_resize.h"
 
 namespace schwi {
-	bool Image::load_file(const std::string& filename, int _n,bool flip) {
+	bool Image::load_file(const std::string& filename,bool flip) {
 		stbi_set_flip_vertically_on_load(flip);
-		BYTE* data = stbi_load(filename.c_str(), &w, &h, &comp, _n);
+		BYTE* data = stbi_load(filename.c_str(), &w, &h, &comp, 0);
 		if (data) {
 			pixels = std::vector<BYTE>(data, data + w * comp * h);
 			stbi_image_free(data);

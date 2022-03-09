@@ -26,7 +26,7 @@ int main(int argc, char** argv) {
 			framebuffer.setColor(i, j, Color(255, 0, 0));
 		}
 	}*/
-	framebuffer.write_file("framebuffer.png"); // the vertical flip is moved inside the function
+	framebuffer.write_file("framebuffer.png",true); // the vertical flip is moved inside the function
 	//model.diffuse().write_file("diffuse.png",false);
 	//model.specular().write_file("specular.png",false);
 

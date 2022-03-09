@@ -14,8 +14,10 @@ namespace schwi {
 		BYTE rgba[4] = { 0,0,0,0 };
 		BYTE comp;
 
-		Color() :rgba{ 0,0,0,0 }, comp(3){};
-		Color(BYTE r, BYTE g, BYTE b, BYTE a = 255) :rgba{ r,g,b,a }, comp(3) {}
+		Color() :rgba{ 0,0,0,0 }, comp(3){};//default
+		Color(BYTE r) :rgba{ r,255,255,255 }, comp(1){}//Grayscale
+		Color(BYTE r, BYTE g, BYTE b) :rgba{ r,g,b,255 }, comp(3) {}//rgb
+		Color(BYTE r, BYTE g, BYTE b,BYTE a) :rgba{ r,g,b,a }, comp(4) {}//rgba
 		Color(const BYTE* color, int _comp) :comp(_comp) {
 			for (int i = _comp; i--; rgba[i] = color[i]);
 		}
@@ -32,10 +34,10 @@ namespace schwi {
 	public:
 		enum Format { GRAY = 1, RGB = 3, RGBA = 4 };
 		Image() = default;
-		Image(const std::string& filename, int _comp = 0) :w(0), h(0), comp(0) {
-			load_file(filename, _comp);
+		Image(const std::string& filename) :w(0), h(0), comp(0) {
+			load_file(filename);
 		}
-		Image(int _w, int _h, int _comp = 4) :w(_w), h(_h), comp(_comp) {
+		Image(int _w, int _h, int _comp = 3) :w(_w), h(_h), comp(_comp) {
 			pixels = std::vector<BYTE>(w * comp * h);
 		}
 
@@ -44,8 +46,8 @@ namespace schwi {
 		inline const int height()const { return h; }
 		inline const int channels() const { return comp; }
 
-		bool load_file(const std::string& filename, int _n = 0, bool flip = true);
-		void write_file(const std::string& filename, bool flip = true)const;
+		bool load_file(const std::string& filename, bool flip = false);
+		void write_file(const std::string& filename, bool flip = false)const;
 		void setColor(const int x, const int y,const Color& color);
 		Color getColor(const int x, const int y) const;
 	};

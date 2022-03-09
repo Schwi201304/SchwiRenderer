@@ -74,7 +74,7 @@ namespace schwi {
         size_t dot = filename.find_last_of(".");
         if (dot == std::string::npos) return;
         std::string texfile = filename.substr(0, dot) + suffix;
-        std::cerr << "texture file " << texfile << " loading " << (img.load_file(texfile.c_str(),0,false) ? "ok" : "failed") << std::endl;
+        std::cerr << "texture file " << texfile << " loading " << (img.load_file(texfile.c_str()) ? "ok" : "failed") << std::endl;
     }
 
     vec3 Model::normal(const vec2& uvf) const {
