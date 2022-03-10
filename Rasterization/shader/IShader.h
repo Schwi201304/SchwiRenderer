@@ -2,6 +2,7 @@
 #define ISHADER_H
 
 #include "../image/image.h"
+
 #include "../geometry/geometry.h"
 namespace schwi {
     class IShader {

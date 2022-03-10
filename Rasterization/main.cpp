@@ -1,8 +1,10 @@
 #include <limits>
 #include "our_gl.h"
+#include"image/image.h"
+#include<imgui/imgui.h>
+#include<GLFW/glfw3.h>
 //#include"shader/GouraudShader.h"
 #include"shader/PhongShader.h"
-
 using namespace schwi;
 using namespace std;
 int main() {

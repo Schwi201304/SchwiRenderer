@@ -1,5 +1,5 @@
-#ifndef IMAGE_H
-#define IMAGE_H
+#ifndef SCHWI_IMAGE_H
+#define SCHWI_IMAGE_H
 
 #include<fstream>
 #include<iostream>

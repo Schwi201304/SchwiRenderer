@@ -2,7 +2,6 @@
 #include <string>
 #include "geometry/geometry.h"
 #include "image/image.h"
-
 namespace schwi {
     class Model {
         std::vector<vec3> verts{};     // array of vertices
