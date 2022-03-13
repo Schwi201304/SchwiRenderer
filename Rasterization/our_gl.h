@@ -6,8 +6,8 @@
 #include"shader/IShader.h"
 
 namespace schwi {
-    constexpr int width = 800; // output image size
-    constexpr int height = 800;
+    constexpr int width = 400; // output image size
+    constexpr int height = 400;
 
     const vec3 light_dir(1, 1, 1); // parallel light source
     const vec3       eye(1, 1, 3); // camera position

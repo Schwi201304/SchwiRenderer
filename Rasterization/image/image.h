@@ -42,7 +42,7 @@ namespace schwi {
 			pixels = std::vector<BYTE>(w * comp * h);
 		}
 
-		inline BYTE* data() { return pixels.data(); }
+		inline const BYTE* data() { return pixels.data(); }
 		inline const int width()const { return w; }
 		inline const int height()const { return h; }
 		inline const int channels() const { return comp; }
